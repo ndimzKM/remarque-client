@@ -1,0 +1,29 @@
+@import "./partials/global";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+main {
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  .side-nav {
+    width: 15%;
+    background-color: $dark;
+  }
+  .middle-container {
+    width: 30%;
+    background-color: $darkGreyish;
+  }
+
+  .main-container {
+    width: 55%;
+    background-color: $darkGreyish2;
+  }
+}
