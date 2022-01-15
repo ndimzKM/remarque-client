@@ -1,4 +1,5 @@
 @import "./partials/global";
+@import "./partials/nav-container";
 * {
   margin: 0;
   padding: 0;
@@ -15,15 +16,15 @@ main {
   width: 100%;
   .side-nav {
     width: 15%;
-    background-color: $dark;
+    background-color: $sideNavigation;
   }
   .middle-container {
     width: 30%;
-    background-color: $darkGreyish;
+    background-color: $middleBar;
   }
 
   .main-container {
     width: 55%;
-    background-color: $darkGreyish2;
+    background-color: $mainBar;
   }
 }

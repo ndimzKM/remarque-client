@@ -1,0 +1,75 @@
+@import "./global";
+@import "./functions";
+
+.side-nav {
+  overflow-y: scroll;
+  scrollbar-color: #dcdcdc #eee;
+  scrollbar-width: thin;
+
+  ::-webkit-scrollbar {
+    width: 0.15em;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #dcdcdc;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2c3437;
+  }
+  ::-moz-scrollbar {
+    width: 0.15em;
+  }
+  ::-moz-scrollbar-track {
+    background-color: #dcdcdc;
+  }
+  ::-moz-scrollbar-thumb {
+    background: #2c3437;
+  }
+  .nav-container {
+    h3 {
+      padding-left: 10px;
+    }
+    .navbar {
+      margin-top: 15px;
+      li {
+        @include flexJustify(none, center, row);
+        margin-bottom: 10px;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 30px;
+        i {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+        }
+        span {
+          color: #333333;
+          padding-left: 8px;
+          font-size: 1.1em;
+          font-weight: 400;
+        }
+        &:hover {
+          background-color: $mainBar;
+        }
+      }
+      li.active {
+        background-color: $mainBar;
+      }
+    }
+    .tags {
+      li {
+        cursor: pointer;
+        padding: 5px 10px;
+        color: $lightGrey;
+        @include flexJustify(none, center, row);
+        margin-bottom: 5px;
+        span {
+          padding-left: 5px;
+        }
+        &:hover {
+          background-color: $mainBar;
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+}
