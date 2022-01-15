@@ -2,28 +2,10 @@
 @import "./functions";
 
 .side-nav {
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-color: #dcdcdc #eee;
   scrollbar-width: thin;
 
-  ::-webkit-scrollbar {
-    width: 0.15em;
-  }
-  ::-webkit-scrollbar-track {
-    background-color: #dcdcdc;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #2c3437;
-  }
-  ::-moz-scrollbar {
-    width: 0.15em;
-  }
-  ::-moz-scrollbar-track {
-    background-color: #dcdcdc;
-  }
-  ::-moz-scrollbar-thumb {
-    background: #2c3437;
-  }
   .nav-container {
     h3 {
       padding-left: 10px;

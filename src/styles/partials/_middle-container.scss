@@ -1,0 +1,56 @@
+@import "./global";
+@import "./functions";
+
+.middle-container {
+  overflow-y: auto;
+  scrollbar-color: #dcdcdc #eee;
+  scrollbar-width: thin;
+
+  .top-search {
+    form {
+      width: 88%;
+      margin-right: 10px;
+      border-radius: 30px;
+      padding: 7px 10px;
+      background-color: $mainBar;
+      .icon {
+        width: 7%;
+      }
+      input {
+        width: 97%;
+      }
+    }
+    button {
+      width: 12%;
+      background-color: $darkBlue;
+      height: 40px;
+      border-radius: 50%;
+      @include flexJustify(center, center, row);
+    }
+  }
+
+  .notes {
+    margin-top: 10px;
+    .note {
+      cursor: pointer;
+      padding: 10px;
+      h3 {
+        font-weight: 500;
+        font-size: 1.1em;
+        color: #666 !important;
+        line-height: 1.2;
+        padding-bottom: 5px;
+      }
+      p {
+        font-size: 0.9em;
+        color: $lightGrey;
+      }
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+    .note.active {
+      background-color: #f5f5f5;
+    }
+  }
+}

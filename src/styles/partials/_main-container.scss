@@ -1,0 +1,35 @@
+@import "./global";
+@import "./functions";
+
+.main-container {
+  overflow-y: none;
+  scrollbar-color: #dcdcdc #eee;
+  scrollbar-width: thin;
+  position: relative;
+  ul.top-bar {
+    position: fixed;
+    background-color: $mainBar;
+    padding: 10px;
+    bottom: 0;
+    z-index: 3;
+    width: inherit;
+    @include flexJustify(start, center, row);
+    li {
+      margin-right: 30px;
+      cursor: pointer;
+    }
+  }
+
+  .editor-container {
+    height: 100%;
+    background-color: #f5f5f5 !important;
+    .editor {
+      height: 900px !important;
+      background-color: transparent !important;
+    }
+  }
+}
+
+.CodeMirror {
+  height: calc(85% - 20px) !important;
+}
