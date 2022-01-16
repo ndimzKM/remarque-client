@@ -1,2 +1,2 @@
-export const UPDATE_USER = "UPDATE_USER";
-export const UPDATE_TOKEN = "UPDATE_TOKEN";
+export const UPDATE_NOTES = "UPDATE_NOTES";
+export const UPDATE_NOTE = "UPDATE_NOTE";
