@@ -1,14 +1,17 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
+import { useSelector, useDispatch } from "react-redux";
 
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/base16-light.css";
 import "codemirror/mode/gfm/gfm";
 import "codemirror/addon/selection/active-line";
 import "codemirror/addon/scroll/scrollpastend";
+import { updateActiveNote } from "../../redux/actions";
 
 const NoteEditor = () => {
-  const [note, setNote] = useState("Hello");
+  const { activeNote } = useSelector((state) => state.reducer);
+  const dispatch = useDispatch();
 
   const codemirror = useRef();
 
@@ -43,6 +46,12 @@ const NoteEditor = () => {
     });
   };
 
+  const setNote = (value) => {
+    let tempNote = activeNote;
+    tempNote.content = value;
+    dispatch(updateActiveNote(tempNote));
+  };
+
   useEffect(() => {
     codemirror.current.editor.display.wrapper.style.height = "100%";
     codemirror.current.editor.display.wrapper.style.padding = "10px";
@@ -52,7 +61,7 @@ const NoteEditor = () => {
     <CodeMirror
       ref={codemirror}
       className="editor bg-red-900"
-      value={note}
+      value={activeNote.content}
       onBeforeChange={(editor, data, value) => {
         setNote(value);
       }}

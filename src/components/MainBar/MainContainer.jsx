@@ -5,6 +5,7 @@ import {
   AiOutlineDownload,
   AiOutlineFile,
 } from "react-icons/ai";
+import EditorContainer from "./EditorContainer";
 import NoteEditor from "./NoteEditor";
 
 const MainContainer = () => {
@@ -27,9 +28,7 @@ const MainContainer = () => {
           <AiOutlineFile size={24} color="#666" />
         </li>
       </ul>
-      <section className="editor-container h-full">
-        <NoteEditor />
-      </section>
+      <EditorContainer />
     </section>
   );
 };
