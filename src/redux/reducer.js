@@ -75,6 +75,28 @@ const initialState = {
       name: "highlights",
     },
   ],
+  tags: [
+    {
+      id: 1,
+      name: "advancedev",
+      number: 2,
+    },
+    {
+      id: 2,
+      name: "assignment",
+      number: 2,
+    },
+    {
+      id: 3,
+      name: "blog",
+      number: 9,
+    },
+    {
+      id: 4,
+      name: "business",
+      number: 1,
+    },
+  ],
 };
 
 const reducer = (state = initialState, action) => {

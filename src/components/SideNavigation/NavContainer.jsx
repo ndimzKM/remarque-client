@@ -13,7 +13,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateTempNotes } from "../../redux/actions";
 
 const NavContainer = () => {
-  const { notes, folders, tempNotes } = useSelector((state) => state.reducer);
+  const { notes, folders, tempNotes, tags } = useSelector(
+    (state) => state.reducer
+  );
   const dispatch = useDispatch();
 
   const navigateFolders = (e) => {
@@ -87,24 +89,16 @@ const NavContainer = () => {
             <span>Activity</span>
           </li>
         </ul>
-        <h3 className="font-medium text-gray-900 text-lg mt-5">Folders</h3>
+        <h3 className="font-medium text-gray-900 text-lg mt-5">Tags</h3>
         <ul className="tags">
-          <li>
-            <AiOutlineFolder size={20} />
-            <span>advancedev (13)</span>
-          </li>
-          <li>
-            <AiOutlineFolder size={20} />
-            <span>assignment (2)</span>
-          </li>
-          <li>
-            <AiOutlineFolder size={20} />
-            <span>blog (9)</span>
-          </li>
-          <li>
-            <AiOutlineFolder size={20} />
-            <span>bussiness (1)</span>
-          </li>
+          {tags.map((tag) => (
+            <li key={tag.id}>
+              <AiOutlineFolder size={20} />
+              <span>
+                {tag.name} ({tag.number})
+              </span>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
