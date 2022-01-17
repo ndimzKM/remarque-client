@@ -4,14 +4,32 @@ import {
   AiOutlineBell,
   AiOutlineFileText,
   AiOutlineHeart,
-  AiOutlineSearch,
   AiOutlineEdit,
   AiOutlineClockCircle,
   AiOutlineProject,
   AiOutlineFolder,
 } from "react-icons/ai";
+import { useSelector, useDispatch } from "react-redux";
 
 const NavContainer = () => {
+  const { notes } = useSelector((state) => state.reducer);
+  const dispatch = useDispatch();
+
+  const navigateFolders = (e) => {
+    let category = "all";
+    if (
+      e.target.tagName == "LI" ||
+      e.target.tagName == "SPAN" ||
+      e.target.tagName == "svg" ||
+      e.target.tagName == "path"
+    ) {
+      category = e.target.textContent.toLowerCase();
+    }
+    let tempNotes = notes;
+    if (category != "all" || category != "notes") {
+    }
+  };
+
   return (
     <section className="side-nav py-3 px-2">
       <div className="top-action flex justify-end">
@@ -24,7 +42,7 @@ const NavContainer = () => {
       </div>
       <div className="nav-container mt-7">
         <h3 className="font-medium text-gray-900 text-lg">Quick links</h3>
-        <ul className="navbar">
+        <ul className="navbar" onClick={(e) => navigateFolders(e)}>
           <li className="active">
             <i>
               <AiOutlineFileText color="#333" size={24} />
@@ -60,12 +78,6 @@ const NavContainer = () => {
               <AiOutlineClockCircle color="#333" size={24} />
             </i>
             <span>Activity</span>
-          </li>
-          <li>
-            <i>
-              <AiOutlineSearch color="#333" size={24} />
-            </i>
-            <span>Saved search</span>
           </li>
         </ul>
         <h3 className="font-medium text-gray-900 text-lg mt-5">Folders</h3>

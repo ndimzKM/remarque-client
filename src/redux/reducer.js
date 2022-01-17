@@ -6,7 +6,24 @@ const initialState = {
     id: 0,
     content: welcome,
   },
-  folders: [],
+  folders: [
+    {
+      id: 1,
+      name: "reminders",
+    },
+    {
+      id: 2,
+      name: "tasks",
+    },
+    {
+      id: 3,
+      name: "favorites",
+    },
+    {
+      id: 4,
+      name: "highlights",
+    },
+  ],
 };
 
 const reducer = (state = initialState, action) => {
