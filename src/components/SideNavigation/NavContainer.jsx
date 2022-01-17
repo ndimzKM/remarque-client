@@ -10,9 +10,10 @@ import {
   AiOutlineFolder,
 } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
+import { updateTempNotes } from "../../redux/actions";
 
 const NavContainer = () => {
-  const { notes } = useSelector((state) => state.reducer);
+  const { notes, folders, tempNotes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   const navigateFolders = (e) => {
@@ -25,8 +26,14 @@ const NavContainer = () => {
     ) {
       category = e.target.textContent.toLowerCase();
     }
-    let tempNotes = notes;
-    if (category != "all" || category != "notes") {
+    let temp = tempNotes;
+    console.log(category);
+    if (category != "all" && category != "all notes") {
+      let folder = folders.find((fd) => fd.name == category);
+      temp = notes.filter((nt) => nt.folder == folder.id);
+      dispatch(updateTempNotes(temp));
+    } else {
+      dispatch(updateTempNotes(notes));
     }
   };
 
