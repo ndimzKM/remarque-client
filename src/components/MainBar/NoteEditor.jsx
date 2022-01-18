@@ -64,6 +64,7 @@ const NoteEditor = () => {
       value={activeNote.content}
       onBeforeChange={(editor, data, value) => {
         setNote(value);
+        // console.log(value);
       }}
       onChange={(editor, data, value) => {}}
       options={options}

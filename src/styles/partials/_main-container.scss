@@ -28,6 +28,13 @@
       background-color: transparent !important;
     }
   }
+  .preview-editor {
+    overflow-y: auto;
+    padding-bottom: 50px;
+    h1 {
+      font-weight: bold;
+    }
+  }
 }
 
 .CodeMirror {
