@@ -56,3 +56,96 @@ View the source on [Github](https://github.com/taniarascia/takenote).
 - **No tracking or analytics** - 'nuff said
 - **GitHub integration** - self-hosted option is available for auto-syncing to a GitHub repository (not available in the demo)
 `;
+
+export const tags = [
+  {
+    id: 1,
+    name: "advancedev",
+    number: 2,
+  },
+  {
+    id: 2,
+    name: "assignment",
+    number: 2,
+  },
+  {
+    id: 3,
+    name: "blog",
+    number: 9,
+  },
+  {
+    id: 4,
+    name: "business",
+    number: 1,
+  },
+];
+export const notes = [
+  {
+    id: 1,
+    title: "Welcome to Remarque",
+    subtitle: "Generating endless energy with",
+    createdAt: "18/11/2019",
+    content: welcome,
+    folder: 1,
+  },
+  {
+    id: 2,
+    title: "Fusion Energy",
+    subtitle: "Generating endless energy with",
+    createdAt: "18/11/2019",
+    content: "# Hi",
+    folder: 2,
+  },
+  {
+    id: 3,
+    title: "But with some guidance and explanation",
+    subtitle: "Generating endless energy with",
+    createdAt: "18/11/2019",
+    content: "# Bye bye",
+    folder: 1,
+  },
+];
+export const folders = [
+  {
+    id: 1,
+    name: "reminders",
+  },
+  {
+    id: 2,
+    name: "tasks",
+  },
+  {
+    id: 3,
+    name: "favorites",
+  },
+  {
+    id: 4,
+    name: "highlights",
+  },
+];
+export const tempNotes = [
+  {
+    id: 1,
+    title: "Welcome to Remarque",
+    subtitle: "Generating endless energy with",
+    createdAt: "18/11/2019",
+    content: welcome,
+    folder: 1,
+  },
+  {
+    id: 2,
+    title: "Fusion Energy",
+    subtitle: "Generating endless energy with",
+    createdAt: "18/11/2019",
+    content: "# Hi",
+    folder: 2,
+  },
+  {
+    id: 3,
+    title: "But with some guidance and explanation",
+    subtitle: "Generating endless energy with",
+    createdAt: "18/11/2019",
+    content: "# Bye bye",
+    folder: 1,
+  },
+];

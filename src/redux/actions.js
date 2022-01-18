@@ -2,6 +2,7 @@ export const UPDATE_NOTES = "UPDATE_NOTES";
 export const UPDATE_NOTE = "UPDATE_NOTE";
 export const UPDATE_ACTIVE_NOTE = "UPDATE_ACTIVE_NOTE";
 export const UPDATE_TEMP_NOTES = "UPDATE_TEMP_NOTES";
+export const UPDATE_MARKDOWN = "UPDATE_MARKDOWN";
 
 export const updateActiveNote = (note) => (dispatch) => {
   dispatch({
@@ -21,5 +22,12 @@ export const updateTempNotes = (notes) => (dispatch) => {
   dispatch({
     type: UPDATE_TEMP_NOTES,
     payload: notes,
+  });
+};
+
+export const changeMarkdownStatus = (status) => (dispatch) => {
+  dispatch({
+    type: UPDATE_MARKDOWN,
+    payload: status,
   });
 };

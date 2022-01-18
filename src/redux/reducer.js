@@ -1,102 +1,15 @@
 import * as Types from "./actions";
-import { welcome } from "../faker";
+import { welcome, notes, tags, folders, tempNotes } from "../faker";
 const initialState = {
-  notes: [
-    {
-      id: 1,
-      title: "Welcome to Remarque",
-      subtitle: "Generating endless energy with",
-      createdAt: "18/11/2019",
-      content: welcome,
-      folder: 1,
-    },
-    {
-      id: 2,
-      title: "Fusion Energy",
-      subtitle: "Generating endless energy with",
-      createdAt: "18/11/2019",
-      content: "# Hi",
-      folder: 2,
-    },
-    {
-      id: 3,
-      title: "But with some guidance and explanation",
-      subtitle: "Generating endless energy with",
-      createdAt: "18/11/2019",
-      content: "# Bye bye",
-      folder: 1,
-    },
-  ],
-  tempNotes: [
-    {
-      id: 1,
-      title: "Welcome to Remarque",
-      subtitle: "Generating endless energy with",
-      createdAt: "18/11/2019",
-      content: welcome,
-      folder: 1,
-    },
-    {
-      id: 2,
-      title: "Fusion Energy",
-      subtitle: "Generating endless energy with",
-      createdAt: "18/11/2019",
-      content: "# Hi",
-      folder: 2,
-    },
-    {
-      id: 3,
-      title: "But with some guidance and explanation",
-      subtitle: "Generating endless energy with",
-      createdAt: "18/11/2019",
-      content: "# Bye bye",
-      folder: 1,
-    },
-  ],
+  notes: notes,
+  tempNotes: tempNotes,
   activeNote: {
     id: 0,
     content: welcome,
   },
-  folders: [
-    {
-      id: 1,
-      name: "reminders",
-    },
-    {
-      id: 2,
-      name: "tasks",
-    },
-    {
-      id: 3,
-      name: "favorites",
-    },
-    {
-      id: 4,
-      name: "highlights",
-    },
-  ],
-  tags: [
-    {
-      id: 1,
-      name: "advancedev",
-      number: 2,
-    },
-    {
-      id: 2,
-      name: "assignment",
-      number: 2,
-    },
-    {
-      id: 3,
-      name: "blog",
-      number: 9,
-    },
-    {
-      id: 4,
-      name: "business",
-      number: 1,
-    },
-  ],
+  folders: folders,
+  tags: tags,
+  markdown: true,
 };
 
 const reducer = (state = initialState, action) => {
@@ -107,6 +20,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, activeNote: action.payload };
     case Types.UPDATE_TEMP_NOTES:
       return { ...state, tempNotes: action.payload };
+    case Types.UPDATE_MARKDOWN:
+      return { ...state, markdown: action.payload };
     default:
       return state;
   }
