@@ -87,6 +87,7 @@ export const notes = [
     createdAt: "18/11/2019",
     content: welcome,
     folder: 1,
+    favorite:false
   },
   {
     id: 2,
@@ -95,6 +96,7 @@ export const notes = [
     createdAt: "18/11/2019",
     content: "# Hi",
     folder: 2,
+    favorite:false
   },
   {
     id: 3,
@@ -103,6 +105,7 @@ export const notes = [
     createdAt: "18/11/2019",
     content: "# Bye bye",
     folder: 1,
+    favorite:false
   },
 ];
 export const folders = [
@@ -131,6 +134,7 @@ export const tempNotes = [
     createdAt: "18/11/2019",
     content: welcome,
     folder: 1,
+    favorite:false
   },
   {
     id: 2,
@@ -139,6 +143,7 @@ export const tempNotes = [
     createdAt: "18/11/2019",
     content: "# Hi",
     folder: 2,
+    favorite:false,
   },
   {
     id: 3,
@@ -147,5 +152,6 @@ export const tempNotes = [
     createdAt: "18/11/2019",
     content: "# Bye bye",
     folder: 1,
+    favorite:false
   },
 ];

@@ -7,11 +7,11 @@ import {
 } from "react-icons/ai";
 import EditorContainer from "./EditorContainer";
 import { useSelector, useDispatch } from "react-redux";
-import { changeMarkdownStatus } from "../../redux/actions";
+import { changeMarkdownStatus,updateTempNotes, updateNotes } from "../../redux/actions";
 import PreviewEditor from "./PreviewEditor";
 
 const MainContainer = () => {
-  const { markdown } = useSelector((state) => state.reducer);
+  const { markdown, activeNote, notes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   const toggleMarkdown = () => {
@@ -25,6 +25,7 @@ const MainContainer = () => {
         break;
       case 2:
         // toggle favorite
+        toggleFavorite()
         break;
       case 3:
         // delete note
@@ -37,6 +38,17 @@ const MainContainer = () => {
         break;
     }
   };
+
+  const toggleFavorite = () => {
+    let currentNote = activeNote;
+    currentNote.favorite = !currentNote.favorite;
+
+    let newNotes = notes.filter(nt => nt.id !== currentNote.id);
+
+    dispatch(updateNotes([...newNotes, currentNote]))
+    dispatch(updateTempNotes([...newNotes, currentNote]))
+    console.log(notes)
+  }
 
   return (
     <section className="main-container pb-3">
