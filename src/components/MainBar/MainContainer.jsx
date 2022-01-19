@@ -4,10 +4,12 @@ import {
   AiOutlineDelete,
   AiOutlineDownload,
   AiOutlineFile,
+  AiFillStar
 } from "react-icons/ai";
 import EditorContainer from "./EditorContainer";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMarkdownStatus,updateTempNotes, updateNotes } from "../../redux/actions";
+import {sortArrayById} from '../../utils'
 import PreviewEditor from "./PreviewEditor";
 
 const MainContainer = () => {
@@ -44,9 +46,9 @@ const MainContainer = () => {
     currentNote.favorite = !currentNote.favorite;
 
     let newNotes = notes.filter(nt => nt.id !== currentNote.id);
-
-    dispatch(updateNotes([...newNotes, currentNote]))
-    dispatch(updateTempNotes([...newNotes, currentNote]))
+    newNotes = sortArrayById([...newNotes, currentNote])
+    dispatch(updateNotes(newNotes))
+    dispatch(updateTempNotes(newNotes))
     console.log(notes)
   }
 
@@ -57,7 +59,7 @@ const MainContainer = () => {
           <AiOutlineEye size={24} color="#666" />
         </li>
         <li onClick={(e) => bottomNavEventHandler(e, 2)}>
-          <AiOutlineStar size={24} color="#666" />
+          {activeNote.favorite ? <AiFillStar color="#666" size={24}/> : <AiOutlineStar size={24} color="#666" />}
         </li>
         <li onClick={(e) => bottomNavEventHandler(e, 3)}>
           <AiOutlineDelete size={24} color="#666" />
