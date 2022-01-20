@@ -31,6 +31,7 @@ const MainContainer = () => {
         break;
       case 3:
         // delete note
+        deleteNote()
         break;
       case 4:
       // download note
@@ -40,6 +41,12 @@ const MainContainer = () => {
         break;
     }
   };
+  
+  const deleteNote = () => {
+    let newNotes = notes.filter(note => note.id !== activeNote.id)
+    dispatch(updateNotes(newNotes));
+    dispatch(updateTempNotes(newNotes));
+  }
 
   const toggleFavorite = () => {
     let currentNote = activeNote;

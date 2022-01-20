@@ -1,7 +1,15 @@
 import { AiOutlineSearch, AiOutlinePlus, AiOutlineBell } from "react-icons/ai";
+import {useDispatch, useSelector} from 'react-redux'
 import Notes from "./Notes";
-
+import ModalView from './Modal'
+import {toggleModal} from '../../redux/actions'
 const MiddleContainer = () => {
+  const dispatch = useDispatch()
+  const {modal} = useSelector((state) => state.reducer)
+  const openModal = () => {
+    dispatch(toggleModal(true));
+  }
+
   return (
     <section className="middle-container py-3">
       <div className="top-search flex items-center px-2 justify-between">
@@ -18,9 +26,10 @@ const MiddleContainer = () => {
             />
           </div>
         </form>
-        <button>
+        <button onClick={openModal}>
           <AiOutlinePlus color="#fff" size={22} />
         </button>
+        <ModalView />
       </div>
       <Notes />
     </section>

@@ -10,6 +10,7 @@ const initialState = {
   folders: folders,
   tags: tags,
   markdown: true,
+  modal:false
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,6 +23,8 @@ const reducer = (state = initialState, action) => {
       return { ...state, tempNotes: action.payload };
     case Types.UPDATE_MARKDOWN:
       return { ...state, markdown: action.payload };
+    case Types.UPDATE_MODAL:
+      return {...state, modal: action.payload}
     default:
       return state;
   }

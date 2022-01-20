@@ -3,6 +3,7 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const UPDATE_ACTIVE_NOTE = "UPDATE_ACTIVE_NOTE";
 export const UPDATE_TEMP_NOTES = "UPDATE_TEMP_NOTES";
 export const UPDATE_MARKDOWN = "UPDATE_MARKDOWN";
+export const UPDATE_MODAL = "UPDATE_MODAL"
 
 export const updateActiveNote = (note) => (dispatch) => {
   dispatch({
@@ -31,3 +32,10 @@ export const changeMarkdownStatus = (status) => (dispatch) => {
     payload: status,
   });
 };
+
+export const toggleModal = status => dispatch => {
+  dispatch({
+    type:UPDATE_MODAL,
+    payload:status
+  })  
+}
