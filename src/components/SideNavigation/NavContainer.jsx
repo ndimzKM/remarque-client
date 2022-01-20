@@ -18,6 +18,7 @@ const NavContainer = () => {
   );
   const dispatch = useDispatch();
 
+
   const navigateFolders = (e) => {
     let category = "all";
     if (
@@ -44,7 +45,6 @@ const NavContainer = () => {
       dispatch(updateTempNotes(notes));
     }
   };
-
   return (
     <section className="side-nav py-3 px-2">
       <div className="top-action flex justify-end">
