@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeMarkdownStatus,updateTempNotes, updateNotes } from "../../redux/actions";
 import {sortArrayById} from '../../utils'
 import PreviewEditor from "./PreviewEditor";
+import axios from 'axios'
 
 const MainContainer = () => {
   const { markdown, activeNote, notes } = useSelector((state) => state.reducer);
@@ -34,13 +35,39 @@ const MainContainer = () => {
         deleteNote()
         break;
       case 4:
-      // download note
+        // download note
+        dowloadNote()
       case 5:
       // copy note to clipboard
       default:
         break;
     }
   };
+
+  const dowloadNote = () => {
+    console.log('I am here')
+    let payload = {
+      title: activeNote.title,
+      content: activeNote.content,
+      date: (new Date()).toString(),
+    }
+
+    axios.post(`http://localhost:5000/export`, payload, {
+      headers:{
+        'content-type':'application/json'
+      }
+    })
+    .then(res => {
+      let {data} = res;
+      downloadFile(data.message)
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
+  const downloadFile = file => {
+    axios.get(`http://localhost:5000/exports/${file}`).then(res => console.log(res)).catch(err => console.log(err))
+  }
   
   const deleteNote = () => {
     let newNotes = notes.filter(note => note.id !== activeNote.id)
@@ -71,7 +98,7 @@ const MainContainer = () => {
         <li onClick={(e) => bottomNavEventHandler(e, 3)}>
           <AiOutlineDelete size={24} color="#666" />
         </li>
-        <li onClick={(e) => bottomNavEventHandler(e)}>
+        <li onClick={(e) => bottomNavEventHandler(e,4)}>
           <AiOutlineDownload size={24} color="#666" />
         </li>
         <li onClick={(e) => bottomNavEventHandler(e)}>
