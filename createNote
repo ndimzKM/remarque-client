@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import Modal from 'react-modal';
-import {toggleModal, updateNotes, updateTempNotes} from '../../redux/actions.js'
-import {useDispatch, useSelector} from 'react-redux'
-import {modalStyles} from '../../utils'
+import {toggleModal, updateNotes, updateTempNotes} from '../../redux/actions.js';
+import {useDispatch, useSelector} from 'react-redux';
+import {modalStyles} from '../../utils';
 const ModalView = () => {
   const [noteDetails, setNoteDetails] = useState({
     title:'',
