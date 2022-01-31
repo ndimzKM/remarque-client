@@ -11,7 +11,7 @@ A simple markdown note taking app for the everyday developer.
 
 
 
-![Image](https://i.ibb.co/X2nzbqC/Screen-Shot-2022-01-28-at-3-11-59-PM.png) 
+![Image](https://github.com/ndimzKM/remarque-client/raw/main/src/assets/mockup.png) 
 ## Installation
 
 Installing remarque with npm
