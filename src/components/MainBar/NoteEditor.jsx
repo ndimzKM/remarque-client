@@ -7,10 +7,10 @@ import "codemirror/theme/base16-light.css";
 import "codemirror/mode/gfm/gfm";
 import "codemirror/addon/selection/active-line";
 import "codemirror/addon/scroll/scrollpastend";
-import { updateActiveNote } from "../../redux/actions";
+import { updateActiveNote, updateNotes, updateTempNotes } from "../../redux/actions";
 
 const NoteEditor = () => {
-  const { activeNote } = useSelector((state) => state.reducer);
+  const { activeNote,notes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   const codemirror = useRef();

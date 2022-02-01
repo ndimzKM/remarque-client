@@ -25,3 +25,8 @@ export const modalStyles = {
     transform: 'translate(-50%, -50%)',
   }
 }
+
+export const useLocalStorage = (details) => {
+  window.localStorage.setItem(details.name, details.value);
+  return details;
+}
