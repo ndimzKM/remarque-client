@@ -7,7 +7,7 @@
 
 # Remarque
 
-A simple markdown note taking app for the everyday developer.
+A simple markdown note taking app for the everyday developer. Simple and easy to use
 
 
 
