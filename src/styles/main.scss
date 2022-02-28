@@ -1,4 +1,5 @@
 @import "./partials/global";
+@import "./partials/functions";
 @import "./partials/nav-container";
 @import "./partials/middle-container";
 @import "./partials/main-container";
@@ -28,5 +29,48 @@ main {
   .main-container {
     width: 60%;
     background-color: #f5f5f5;
+  }
+}
+
+.homepage {
+  max-width: 900px;
+  margin: auto;
+  nav {
+    padding: 20px 0;
+    @include flexJustify(space-between, center, row);
+    div {
+      @include flexJustify(none, center, row);
+      span {
+        font-size: 1.3em;
+        font-weight: 500;
+        padding-left: 10px;
+      }
+    }
+    ul {
+      li {
+        display: inline;
+        margin-left: 20px;
+      }
+    }
+  }
+  .homepage-header {
+    margin-top: 80px;
+    h1 {
+      font-size: 3.5em;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.1;
+    }
+    p {
+      text-align: center;
+      margin: 20px 0;
+    }
+    a {
+      background-color: #3361cc;
+      padding: 10px 20px;
+      border-radius: 3px;
+      color: #fff;
+      font-weight: 500;
+    }
   }
 }
