@@ -18,6 +18,7 @@
       }
       input {
         width: 97%;
+        outline: none;
       }
     }
     button {
@@ -55,44 +56,44 @@
   }
 }
 
-.modal{
-  background:blue;
-  form{
-    input{
-      border:1px #333 solid;
-      background-color:red;
+.modal {
+  background: blue;
+  form {
+    input {
+      border: 1px #333 solid;
+      background-color: red;
     }
   }
 }
-.ReactModal__Content{
-  form{
-    h2{
+.ReactModal__Content {
+  form {
+    h2 {
       font-size: 1.1em;
     }
-    .form-group{
-      @include flexJustify(none,none,column);
-      margin-bottom:20px;
+    .form-group {
+      @include flexJustify(none, none, column);
+      margin-bottom: 20px;
     }
-    label{
-      margin-bottom:5px;
-      font-size:0.9em;
-      font-weight:500;
+    label {
+      margin-bottom: 5px;
+      font-size: 0.9em;
+      font-weight: 500;
     }
-    input{
-      border:1px #ccc solid !important;
-      padding:10px;
+    input {
+      border: 1px #ccc solid !important;
+      padding: 10px;
       border-radius: 3px;
-      font-size:0.9em;
+      font-size: 0.9em;
     }
-    button{
-      padding:10px;
+    button {
+      padding: 10px;
       border-radius: 3px;
       background-color: $darkBlue;
-      color:#fff;
-      font-size:0.9em;
+      color: #fff;
+      font-size: 0.9em;
     }
-    button.close-btn{
-      background-color:red;
+    button.close-btn {
+      background-color: red;
     }
   }
 }
