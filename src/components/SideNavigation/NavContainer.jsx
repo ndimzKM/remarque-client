@@ -18,7 +18,6 @@ const NavContainer = () => {
   );
   const dispatch = useDispatch();
 
-
   const navigateFolders = (e) => {
     let category = "all";
     if (
@@ -31,22 +30,19 @@ const NavContainer = () => {
     }
     let temp = tempNotes;
     console.log(category);
-    if(category === 'favorites' || category === 'favorite'){
-      temp = notes.filter(nt => nt.favorite === true);
+    if (category === "favorites" || category === "favorite") {
+      temp = notes.filter((nt) => nt.favorite === true);
       dispatch(updateTempNotes(temp));
-    }
-
-    else if (category != "all" && category != "all notes") {
+    } else if (category != "all" && category != "all notes") {
       let folder = folders.find((fd) => fd.name == category);
       temp = notes.filter((nt) => nt.folder == folder.id);
       dispatch(updateTempNotes(temp));
-    }
-    else {
+    } else {
       dispatch(updateTempNotes(notes));
     }
   };
   return (
-    <section className="side-nav py-3 px-2">
+    <section className="side-nav py-3 px-2 dark:bg-gray-900">
       <div className="top-action flex justify-end">
         <button className="mr-3">
           <AiOutlineSync color="#333" size={20} />
