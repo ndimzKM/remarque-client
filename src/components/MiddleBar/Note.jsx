@@ -4,11 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateActiveNote } from "../../redux/actions";
 
 const Note = ({ note }) => {
-  const { activeNote } = useSelector((state) => state.reducer);
+  const { activeNote, notes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   const setActiveNote = () => {
-    dispatch(updateActiveNote(note));
+    dispatch(updateActiveNote(note, notes));
   };
 
   return (

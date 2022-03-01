@@ -1,16 +1,35 @@
 import * as Types from "./actions";
-import { welcome, notes, tags, folders, tempNotes } from "../faker";
+//import { welcome, notes, tags, folders, tempNotes } from "../faker";
+import { welcome, folders } from "../faker";
+
+let original = {
+  id: 1,
+  title: "Welcome to Remarque",
+  subtitle: "Generating endless energy with",
+  createdAt: "18/11/2019",
+  content: welcome,
+  folder: 1,
+  favorite: false,
+  tags: "welcome",
+};
+let notes = window.localStorage.getItem("notes");
+notes = JSON.parse(notes);
+
+if (notes == null) notes = [];
+
+notes = [original, ...notes];
+
 const initialState = {
   notes: notes,
-  tempNotes: tempNotes,
+  tempNotes: notes,
   activeNote: {
     id: 0,
     content: welcome,
   },
   folders: folders,
-  tags: tags,
+  tags: [],
   markdown: true,
-  modal:false
+  modal: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,7 +43,7 @@ const reducer = (state = initialState, action) => {
     case Types.UPDATE_MARKDOWN:
       return { ...state, markdown: action.payload };
     case Types.UPDATE_MODAL:
-      return {...state, modal: action.payload}
+      return { ...state, modal: action.payload };
     default:
       return state;
   }

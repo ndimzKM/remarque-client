@@ -1,41 +1,46 @@
-import { useState } from 'react'
-import Modal from 'react-modal';
-import {toggleModal, updateNotes, updateTempNotes} from '../../redux/actions.js'
-import {useDispatch, useSelector} from 'react-redux'
-import {modalStyles} from '../../utils'
+import { useState } from "react";
+import Modal from "react-modal";
+import {
+  toggleModal,
+  updateNotes,
+  updateTempNotes,
+} from "../../redux/actions.js";
+import { useDispatch, useSelector } from "react-redux";
+import { modalStyles } from "../../utils";
 const ModalView = () => {
   const [noteDetails, setNoteDetails] = useState({
-    title:'',
-    subtitle:'',
-    tags:''
-  })
+    title: "",
+    subtitle: "",
+    tags: "",
+  });
 
   const { modal, notes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   const closeModal = () => {
     dispatch(toggleModal(!modal));
-  }
+  };
 
-  const handleChange = e => {
-    setNoteDetails(prevState => (
-      {...prevState, [e.target.name]:e.target.value}
-    ))
-  }
+  const handleChange = (e) => {
+    setNoteDetails((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const createNote = (e) => {
     e.preventDefault();
 
-    let newNote = {...noteDetails};
-    newNote.tags = newNote.tags.split(',');
+    let newNote = { ...noteDetails };
+    newNote.tags = newNote.tags.split(",");
 
-    let lastID = notes[notes.length - 1].id
-    newNote.id = Number(lastID) + 1
+    let lastID = notes[notes.length - 1].id;
+    newNote.id = Number(lastID) + 1;
 
-    dispatch(updateNotes([...notes, newNote]))
-    dispatch(updateTempNotes([...notes, newNote]))
-    dispatch(toggleModal(false))
-  }
+    dispatch(updateNotes([...notes, newNote]));
+    dispatch(updateTempNotes([...notes, newNote]));
+    dispatch(toggleModal(false));
+  };
 
   return (
     <div className="modal">
@@ -43,6 +48,7 @@ const ModalView = () => {
         isOpen={modal}
         contentLabel="Example Modal"
         style={modalStyles}
+        ariaHideApp={false}
       >
         <div className="bg-white space-y-6">
           <div className="md:inline-flex  space-y-4 md:space-y-0  w-full p-4 text-gray-500 items-center">
@@ -143,7 +149,10 @@ const ModalView = () => {
             </div>
 
             <div className="md:w-3/12 text-center md:pl-6">
-              <button onClick={(e) => createNote(e)} className="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
+              <button
+                onClick={(e) => createNote(e)}
+                className="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right"
+              >
                 <svg
                   fill="none"
                   className="w-4 text-white mr-2"
@@ -164,7 +173,10 @@ const ModalView = () => {
 
           <hr />
           <div className="w-full p-4 text-right text-gray-500">
-            <button onClick={closeModal} className="inline-flex items-center focus:outline-none mr-4">
+            <button
+              onClick={closeModal}
+              className="inline-flex items-center focus:outline-none mr-4"
+            >
               <svg
                 fill="none"
                 className="w-4 mr-2"
@@ -184,7 +196,7 @@ const ModalView = () => {
         </div>
       </Modal>
     </div>
-  )
-}
+  );
+};
 
 export default ModalView;
