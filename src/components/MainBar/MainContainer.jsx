@@ -1,5 +1,6 @@
 import {
   AiOutlineEye,
+  AiOutlineEyeInvisible,
   AiOutlineStar,
   AiOutlineDelete,
   AiOutlineDownload,
@@ -90,10 +91,10 @@ const MainContainer = () => {
     <section className="main-container pb-3">
       <ul className="top-bar px-2">
         <li onClick={(e) => bottomNavEventHandler(e, 1)}>
-          <AiOutlineEye size={24} color="#666" />
+          {!markdown ? <AiOutlineEye size={24} color="#666" />: <AiOutlineEyeInvisible size={24} color="#666"/>}
         </li>
         <li onClick={(e) => bottomNavEventHandler(e, 2)}>
-          {activeNote.favorite ? <AiFillStar color="#666" size={24}/> : <AiOutlineStar size={24} color="#666" />}
+          {activeNote.favorite ? <AiFillStar color="#FFA500" size={24}/> : <AiOutlineStar size={24} color="#666" />}
         </li>
         <li onClick={(e) => bottomNavEventHandler(e, 3)}>
           <AiOutlineDelete size={24} color="#666" />

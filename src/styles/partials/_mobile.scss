@@ -1,0 +1,53 @@
+@include mobile_screen {
+  main {
+    .side-nav {
+      width: 30%;
+      background-color: $sideNavigation;
+
+      .navbar{
+        li {
+            @include flexJustify(center, center, row);
+            border-radius: 0;
+            i {
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+              margin: auto 40%;
+
+            }
+            span{display: none;}
+
+      }
+    }
+    }
+    .middle-container {
+      position: fixed;
+      right: 0;
+      left: 20%;
+      margin: auto;
+      width: 70%;
+      height: 100vh;
+      background-color: $middleBar;
+    }
+
+    .main-container {
+      background-color: #f5f5f5;
+      transform: translateX(100%);
+    }
+
+  }
+// mobilr d
+  .display-main-container{
+    .main-container {
+        transform: translateX(0);
+        width: 100%;
+        width: 100vh;
+      }
+
+      .middle-container{
+        transform: translate(-100%);
+        display: none;    
+      }
+
+}
+}

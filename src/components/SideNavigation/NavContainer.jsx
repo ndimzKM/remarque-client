@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   AiOutlineSync,
   AiOutlineLeft,
@@ -12,7 +13,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { updateTempNotes } from "../../redux/actions";
 
-const NavContainer = () => {
+const NavContainer = ({setToggleSideBar, toggleSideBar}) => {
+
   const { notes, folders, tempNotes, tags } = useSelector(
     (state) => state.reducer
   );
@@ -24,9 +26,12 @@ const NavContainer = () => {
       e.target.tagName == "LI" ||
       e.target.tagName == "SPAN" ||
       e.target.tagName == "svg" ||
-      e.target.tagName == "path"
+      e.target.tagName == "path"||
+      e.target.tagName == "I"
     ) {
       category = e.target.textContent.toLowerCase();
+      // toggle mainContainer display by clicking icons
+      toggleSideBar && setToggleSideBar(!toggleSideBar)
     }
     let temp = tempNotes;
     console.log(category);
@@ -47,12 +52,14 @@ const NavContainer = () => {
         <button className="mr-3">
           <AiOutlineSync color="#333" size={20} />
         </button>
-        <button>
+        <button onClick={()=>{
+          setToggleSideBar(!toggleSideBar)
+        }}>
           <AiOutlineLeft color="#333" size={20} />
         </button>
       </div>
       <div className="nav-container mt-7">
-        <h3 className="font-medium text-gray-900 text-lg">Quick links</h3>
+        <h3 className="font-medium text-gray-900 text-lg text-center">Quick links</h3>
         <ul className="navbar" onClick={(e) => navigateFolders(e)}>
           <li className="active">
             <i>
@@ -91,7 +98,7 @@ const NavContainer = () => {
             <span>Activity</span>
           </li>
         </ul>
-        <h3 className="font-medium text-gray-900 text-lg mt-5">Tags</h3>
+        <h3 className="font-medium text-gray-900 text-lg mt-5 text-center md:text-left">Tags</h3>
         <ul className="tags">
           {tags.map((tag) => (
             <li key={tag.id}>

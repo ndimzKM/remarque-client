@@ -39,8 +39,8 @@ const MiddleContainer = () => {
             />
           </div>
         </form>
-        <button onClick={openModal}>
-          <AiOutlinePlus color="#fff" size={22} />
+        <button onClick={openModal} className="w-24 h-24 rounded-full">
+          <AiOutlinePlus color="#fff" />
         </button>
         <ModalView />
       </div>
