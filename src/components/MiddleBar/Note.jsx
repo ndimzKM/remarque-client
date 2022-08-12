@@ -13,7 +13,7 @@ const Note = ({ note }) => {
 
   return (
     <div
-      className={note.id == activeNote.id ? "note active" : "note"}
+      className={note.id === activeNote.id ? "note active" : "note"}
       onClick={() => setActiveNote()}
     >
       <h3>{note.title}</h3>

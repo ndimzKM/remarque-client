@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   AiOutlineSync,
   AiOutlineLeft,
@@ -23,43 +22,53 @@ const NavContainer = ({setToggleSideBar, toggleSideBar}) => {
   const navigateFolders = (e) => {
     let category = "all";
     if (
-      e.target.tagName == "LI" ||
-      e.target.tagName == "SPAN" ||
-      e.target.tagName == "svg" ||
-      e.target.tagName == "path"||
-      e.target.tagName == "I"
-    ) {
-      category = e.target.textContent.toLowerCase();
+      e.target.tagName === "LI" ||
+      e.target.tagName === "SPAN" ||
+      e.target.tagName === "svg" ||
+      e.target.tagName === "path"
+       ) {
+        // get the parent element of svg or path tags
+      if(e.target.tagName === "svg" || e.target.tagName === "path"){
+        category = e.target.parentNode.parentNode.textContent.toLowerCase();
+      }
+      else{
+        category = e.target.textContent.toLowerCase();
+      }
+
       // toggle mainContainer display by clicking icons
       toggleSideBar && setToggleSideBar(!toggleSideBar)
     }
+    
     let temp = tempNotes;
-    console.log(category);
+    // console.log(tempNotes)
+    // console.log(category);
     if (category === "favorites" || category === "favorite") {
       temp = notes.filter((nt) => nt.favorite === true);
       dispatch(updateTempNotes(temp));
-    } else if (category != "all" && category != "all notes") {
-      let folder = folders.find((fd) => fd.name == category);
-      temp = notes.filter((nt) => nt.folder == folder.id);
+    } else if (category !== "all" && category !== "all notes") {
+      let folder = folders.find((fd) => fd.name === category);
+      console.log(folder)
+      temp = notes.filter((nt) => nt.folder === folder.id);
       dispatch(updateTempNotes(temp));
     } else {
       dispatch(updateTempNotes(notes));
     }
   };
   return (
-    <section className="side-nav py-3 px-2 dark:bg-gray-900">
-      <div className="top-action flex justify-end">
-        <button className="mr-3">
-          <AiOutlineSync color="#333" size={20} />
-        </button>
-        <button onClick={()=>{
+    <section className="side-nav py-3 px-1 dark:bg-gray-900">
+      <div className="top-action flex flex-col justify-center items-center md:block md:text-center ">
+        <button className="pt-4" onClick={()=>{
           setToggleSideBar(!toggleSideBar)
         }}>
-          <AiOutlineLeft color="#333" size={20} />
+          <AiOutlineLeft color="#333" size={24} />
+        </button>
+        <button className="md:ml-5">
+          <AiOutlineSync color="#333" size={24} />
         </button>
       </div>
-      <div className="nav-container mt-7">
-        <h3 className="font-medium text-gray-900 text-lg text-center">Quick links</h3>
+
+      <div className="nav-container mt-7 w-auto ">
+        <h3 className="nav-container-heading font-medium text-gray-900 text-lg text-left">Quick links</h3>
         <ul className="navbar" onClick={(e) => navigateFolders(e)}>
           <li className="active">
             <i>
@@ -69,7 +78,7 @@ const NavContainer = ({setToggleSideBar, toggleSideBar}) => {
           </li>
           <li>
             <i>
-              <AiOutlineBell color="#333" size={24} />
+              <AiOutlineBell color="#333" size={24} className="w-full" />
             </i>
             <span>Reminders</span>
           </li>
