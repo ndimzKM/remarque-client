@@ -9,7 +9,7 @@ const AppView = () => {
   return (
     <main className={`flex justify-between dark:bg-slate-900 transition-all ${toggleSideBar ? 'display-main-container':''}`}>
       <NavContainer setToggleSideBar={setToggleSideBar} toggleSideBar={toggleSideBar} />
-      <MiddleContainer />
+      <MiddleContainer setToggleSideBar={setToggleSideBar} toggleSideBar={toggleSideBar} />
       <MainContainer />
     </main>
   );

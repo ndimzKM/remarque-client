@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateActiveNote } from "../../redux/actions";
 
-const Note = ({ note }) => {
+const Note = ({ note, toggleSideBar, setToggleSideBar }) => {
   const { activeNote, notes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   const setActiveNote = () => {
     dispatch(updateActiveNote(note, notes));
+    toggleSideBar = setToggleSideBar(!toggleSideBar)
+
   };
 
   return (

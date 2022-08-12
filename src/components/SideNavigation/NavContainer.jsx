@@ -67,7 +67,7 @@ const NavContainer = ({setToggleSideBar, toggleSideBar}) => {
         </button>
       </div>
 
-      <div className="nav-container mt-7 w-auto ">
+      <div className="nav-container mt-7  ">
         <h3 className="nav-container-heading font-medium text-gray-900 text-lg text-left">Quick links</h3>
         <ul className="navbar" onClick={(e) => navigateFolders(e)}>
           <li className="active">
@@ -78,7 +78,7 @@ const NavContainer = ({setToggleSideBar, toggleSideBar}) => {
           </li>
           <li>
             <i>
-              <AiOutlineBell color="#333" size={24} className="w-full" />
+              <AiOutlineBell color="#333" size={24} />
             </i>
             <span>Reminders</span>
           </li>

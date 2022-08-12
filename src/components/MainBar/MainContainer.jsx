@@ -89,7 +89,7 @@ const MainContainer = () => {
 
   return (
     <section className="main-container pb-3">
-      <ul className="top-bar px-2">
+      <ul className="top-bar px-2 fixed">
         <li onClick={(e) => bottomNavEventHandler(e, 1)}>
           {!markdown ? <AiOutlineEye size={24} color="#666" />: <AiOutlineEyeInvisible size={24} color="#666"/>}
         </li>
