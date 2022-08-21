@@ -4,13 +4,13 @@ import { GrDocumentNotes } from "react-icons/gr";
 
 const HomePage = () => {
   return (
-    <section className="homepage">
+    <section className="homepage overflow-hidden">
       <nav>
         <div>
           <GrDocumentNotes size={25} color="#3361cc" />
           <span>Remarque</span>
         </div>
-        <ul>
+        <ul className="">
           <li>
             <a href="#">Features</a>
           </li>
@@ -27,8 +27,8 @@ const HomePage = () => {
           </li>
         </ul>
       </nav>
-      <div className="flex items-center flex-col homepage-header">
-        <h1>
+      <div className="flex items-center flex-col homepage-header ">
+        <h1 className="">
           The simplest way to <br />
           keep notes
         </h1>
@@ -39,7 +39,7 @@ const HomePage = () => {
         </p>
 
         <Link to="/app">Go to App</Link>
-        <img src={mockup} alt="Mockup Image" className="mockup-image" />
+        <img src={mockup} alt="Mockup Image" className="mockup-image mt-6" />
       </div>
     </section>
   );

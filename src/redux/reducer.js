@@ -1,7 +1,7 @@
 import * as Types from "./actions";
 //import { welcome, notes, tags, folders, tempNotes } from "../faker";
 import { welcome, folders } from "../faker";
-
+console.log(folders)
 let original = {
   id: 1,
   title: "Welcome to Remarque",

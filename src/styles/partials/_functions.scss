@@ -4,3 +4,9 @@
   align-items: $align;
   flex-direction: $direction;
 }
+
+@mixin mobile_screen {
+  @media screen and (max-width: $mobile){
+    @content
+  }
+}

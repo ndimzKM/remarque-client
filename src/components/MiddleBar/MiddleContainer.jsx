@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Notes from "./Notes";
 import ModalView from "./Modal";
 import { toggleModal, updateTempNotes } from "../../redux/actions";
-const MiddleContainer = () => {
+const MiddleContainer = ({toggleSideBar, setToggleSideBar}) => {
   const dispatch = useDispatch();
   const { tempNotes, notes } = useSelector((state) => state.reducer);
   const [searchField, setSearchField] = useState("");
@@ -39,12 +39,12 @@ const MiddleContainer = () => {
             />
           </div>
         </form>
-        <button onClick={openModal}>
-          <AiOutlinePlus color="#fff" size={22} />
+        <button onClick={openModal} className="w-24 h-24 rounded-full">
+          <AiOutlinePlus color="#fff" />
         </button>
         <ModalView />
       </div>
-      <Notes />
+      <Notes toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
     </section>
   );
 };

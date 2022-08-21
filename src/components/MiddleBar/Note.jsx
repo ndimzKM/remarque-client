@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateActiveNote } from "../../redux/actions";
 
-const Note = ({ note }) => {
+const Note = ({ note, toggleSideBar, setToggleSideBar }) => {
   const { activeNote, notes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
 
   const setActiveNote = () => {
     dispatch(updateActiveNote(note, notes));
+    toggleSideBar = setToggleSideBar(!toggleSideBar)
+
   };
 
   return (
     <div
-      className={note.id == activeNote.id ? "note active" : "note"}
+      className={note.id === activeNote.id ? "note active" : "note"}
       onClick={() => setActiveNote()}
     >
       <h3>{note.title}</h3>

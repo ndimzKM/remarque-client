@@ -128,6 +128,10 @@ export const folders = [
     id: 4,
     name: "highlights",
   },
+  {
+    id: 5,
+    name: "activity",
+  },
 ];
 export const tempNotes = [
   {

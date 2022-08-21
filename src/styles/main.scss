@@ -3,6 +3,7 @@
 @import "./partials/nav-container";
 @import "./partials/middle-container";
 @import "./partials/main-container";
+// @import "./partials/mobile";
 * {
   margin: 0;
   padding: 0;
@@ -18,26 +19,29 @@ main {
   position: fixed;
   width: 100%;
   .side-nav {
-    width: 15%;
-    background-color: $sideNavigation;
+    width: 25%;
+    background-color: $sideNavigation_alt_2;
+    
+
   }
   .middle-container {
-    width: 25%;
+    width: 75%;
     background-color: $middleBar;
   }
 
   .main-container {
-    width: 60%;
+    width: 100%;
     background-color: #f5f5f5;
   }
 }
 
 .homepage {
   max-width: 900px;
-  margin: auto;
+  margin: auto ;
   nav {
     padding: 20px 0;
     @include flexJustify(space-between, center, row);
+
     div {
       @include flexJustify(none, center, row);
       span {
@@ -73,4 +77,97 @@ main {
       font-weight: 500;
     }
   }
+}
+
+
+
+@include mobile_screen{
+  main {
+    .side-nav {
+      position: fixed;
+      width: 20%;
+      height: 100vh;
+    
+
+      .nav-container{
+        .nav-container-heading{
+          display: none;
+        }
+      }
+
+      .navbar{
+        li {
+            @include flexJustify(center, center, row);
+            border-radius: 0;
+            i {
+              display: inline-flex;
+              justify-content: center;
+              align-items: center;
+
+            }
+            span{display: none;}
+
+      }
+    }
+    }
+
+    .middle-container {
+      position: fixed;
+      left: 20%;
+      margin: auto;
+      height: 100vh;
+      background-color: $middleBar;
+    }
+
+    .main-container {
+      background-color: #f5f5f5;
+      transform: translateX(-100%);
+    }
+
+  }
+
+
+
+  .homepage{
+    padding: 0 15px;
+    margin:auto 20px;
+    nav{
+      @include flexJustify(space-between, center, column);
+    }
+    ul{
+      margin-top: 1rem;
+    }
+  
+    .homepage-header{
+      margin-top: 10px;
+  
+      h1{
+        font-size: 2.5em;
+      }
+      p{
+        font-size: 15px;
+        text-align: center;
+        margin: 20px 30px;
+      }
+    }
+  }
+
+
+  .display-main-container{
+    .side-nav{
+      background-color: $middleBar;
+    }
+    .main-container {
+      // this math baffled me!
+        transform: translateX(25%);
+        width: 80%;
+        
+      }
+
+      .middle-container{
+        display: none;    
+      }
+
+}
+  
 }
