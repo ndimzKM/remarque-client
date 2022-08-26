@@ -1,3 +1,12 @@
+import {
+  AiOutlineBell,
+  AiOutlineFileText,
+  AiOutlineHeart,
+  AiOutlineEdit,
+  AiOutlineClockCircle,
+  AiOutlineProject,
+} from "react-icons/ai";
+
 export const welcome = `# Welcome to Takenote!
 
 TakeNote is a free, open-source notes app for the web. It is a demo project only, and does not integrate with any database or cloud. Your notes are saved in local storage and will not be permanently persisted, but are available for download.
@@ -112,25 +121,40 @@ export const notes = [
   },
 ];
 export const folders = [
+  
   {
     id: 1,
-    name: "reminders",
+    name: "All notes",
+    icon:AiOutlineFileText,
   },
   {
     id: 2,
-    name: "tasks",
+    name: "reminders",
+    icon:AiOutlineBell,
   },
   {
     id: 3,
-    name: "favorites",
+    name: "tasks",
+    icon:AiOutlineProject,
+
   },
   {
     id: 4,
-    name: "highlights",
+    name: "favorites",
+    icon:AiOutlineHeart,
+
   },
   {
     id: 5,
+    name: "highlights",
+    icon:AiOutlineEdit,
+
+  },
+  {
+    id: 6,
     name: "activity",
+    icon:AiOutlineClockCircle,
+
   },
 ];
 export const tempNotes = [

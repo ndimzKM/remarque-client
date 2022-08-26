@@ -7,7 +7,6 @@
   scrollbar-width: thin;
   position: relative;
   ul.top-bar {
-    position: fixed;
     background-color: $mainBar;
     padding: 10px;
     bottom: 0;
@@ -16,6 +15,7 @@
     @include flexJustify(none, center, row);
 
     @include mobile_screen{
+      position: fixed;
       right: 0;
       width: 100%;
     }

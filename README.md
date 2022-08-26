@@ -11,6 +11,8 @@ A simple markdown note taking app for the everyday developer. Simple and easy to
 
 
 
+
+
 ![Image](https://github.com/ndimzKM/remarque-client/raw/main/src/assets/mockup.png) 
 ## Installation
 

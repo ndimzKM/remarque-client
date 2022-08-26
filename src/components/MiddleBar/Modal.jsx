@@ -45,6 +45,7 @@ const ModalView = () => {
   return (
     <div className="modal">
       <Modal
+        className={" overflow-auto absolute h-full"}
         isOpen={modal}
         contentLabel="Example Modal"
         style={modalStyles}
