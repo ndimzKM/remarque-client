@@ -14,6 +14,8 @@ import {sortArrayById} from '../../utils'
 import PreviewEditor from "./PreviewEditor";
 import axios from 'axios'
 
+import PopUp from "./PopUp";
+
 const MainContainer = () => {
   const { markdown, activeNote, notes } = useSelector((state) => state.reducer);
   const dispatch = useDispatch();
@@ -33,14 +35,16 @@ const MainContainer = () => {
         break;
       case 3:
         // delete note
-        deleteNote()
         break;
       case 4:
         // download note
         dowloadNote()
+        break;
       case 5:
       // copy note to clipboard
+      break;
       default:
+        // do something
         break;
     }
   };
@@ -89,7 +93,7 @@ const MainContainer = () => {
 
   return (
     <section className="main-container pb-3">
-      <ul className="top-bar px-2 fixed">
+      <ul className="top-bar px-2">
         <li onClick={(e) => bottomNavEventHandler(e, 1)}>
           {!markdown ? <AiOutlineEye size={24} color="#666" />: <AiOutlineEyeInvisible size={24} color="#666"/>}
         </li>
@@ -97,7 +101,8 @@ const MainContainer = () => {
           {activeNote.favorite ? <AiFillStar color="#FFA500" size={24}/> : <AiOutlineStar size={24} color="#666" />}
         </li>
         <li onClick={(e) => bottomNavEventHandler(e, 3)}>
-          <AiOutlineDelete size={24} color="#666" />
+          <PopUp deleteNote={deleteNote}/>
+          {/* <AiOutlineDelete size={24} color="#666" /> */}
         </li>
         <li onClick={(e) => bottomNavEventHandler(e,4)}>
           <AiOutlineDownload size={24} color="#666" />
