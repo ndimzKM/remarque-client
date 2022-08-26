@@ -67,7 +67,7 @@ function PopUp({deleteNote}) {
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      You are about to delete all notes from storage, note that you cannot recover them! do you want to proceed?
+                      Are you certain you want to delete this note?
                     </p>
                   </div>
 
